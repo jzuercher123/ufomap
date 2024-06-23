@@ -1,0 +1,16 @@
+
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "map visualization of nuforc data of ufo sightings",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joseph Zuercher",
+  "license": "ISC",
+  "dependencies": {
+    "csv": "^6.3.9",
+    "csv-parser": "^3.0.0"
+  }
+}
