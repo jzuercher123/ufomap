@@ -6,8 +6,6 @@ var http = require("http");
 var path = require("path");
 var fs = require("fs");
 
-function
-
 
 function readCSV(file) {
     let csvData = [];
@@ -42,6 +40,6 @@ http.createServer( function(req, res) {
 
 
 
-//data.forEach(row => {
+//geodata.forEach(row => {
 //  console.log(`City: ${row['city']}, State: ${row['state']}, Country: ${row['country']}`);
 //});

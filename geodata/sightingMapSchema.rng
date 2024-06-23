@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar ns="http://earth.google.com/kml/2.2" xmlns="http://relaxng.org/ns/structure/1.0">
+    <start>
+        <element name="kml">
+            <element name="Placemark">
+                <element name="name">
+                    <text/>
+                </element>
+                <element name="description">
+                    <text/>
+                </element>
+                <element name="Point">
+                    <element name="coordinates">
+                        <text/>
+                    </element>
+                </element>
+            </element>
+        </element>
+    </start>
+</grammar>

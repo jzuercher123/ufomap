@@ -1,18 +1,19 @@
 {
   "mapOptions": {
-    "credentials": "YOUR_BING_MAPS_KEY",
+    "credentials": "Your key",
     "center": "47.606209,-122.332071",
     "zoom": 4
   },
   "modules": [
     {
+      "moduleName": "Microsoft.Maps.Isochrone"
+    },
+
+    {
       "moduleName": "Microsoft.Maps.GeoXml",
       "moduleOptions": [
         {
-          "addLayerFromUrl": "https://bingmapsisdk.blob.core.windows.net/isdksamples/Countries.xml"
-        },
-        {
-          "addLayerFromUrl": "https://gist.github.com/jzuercher123/e0b2f830cf84ade6357c45bbb105a9fa"
+          "addLayerFromUrl": "https://bingmapsisdk.blob.core.windows.net/isdksamples/SampleKml.kml"
         },
         {
           "addLayerFromUrl": "https://earthquake.usgs.gov/fdsnws/event/1/query?minmagnitude=3&format=geojson",
