@@ -1,27 +1,4 @@
 {
-  "mapOptions": {
-    "credentials": "AqK5Dlb1WPf1-H0oi9FTcPrnecF6erVoVTGWnwD2ClZDYVODvv2d0avFTNe0EkWC",
-    "center": "47.606209,-122.332071",
-    "zoom": 4
-  },
-  "modules": [
-    {
-      "moduleName": "Microsoft.Maps.Isochrone"
-    },
-
-    {
-      "moduleName": "Microsoft.Maps.GeoXml",
-      "moduleOptions": [
-        {
-          "addLayerFromUrl": "https://raw.githubusercontent.com/jzuercher123/ufomap/master/geodata/scripts/output.kml"
-        },
-        {
-          "addLayerFromUrl": "https://earthquake.usgs.gov/fdsnws/event/1/query?minmagnitude=3&format=geojson",
-          "geoXmlOption": {
-            "layerName": "geoxml layer loading geojson data"
-          }
-        }
-      ]
-    }
-  ]
+    "bingMapsKey": "AihkjEpj0uZLf7YnJpYqzeNiqc8KgnZlghHu6V_c4DAA9ayzmSjmWjjgAnhGKdeh",
+    "kmlFileUrl": "https://raw.githubusercontent.com/jzuercher123/ufomap/master/geodata/scripts/output.kml"
 }

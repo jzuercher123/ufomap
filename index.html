@@ -4,28 +4,19 @@
     <title></title>
     <meta charset="utf-8" />
     <script type='text/javascript'>
-        var map;
-        function GetMap()
-        {
-            Microsoft.Maps.ConfigurableMap.createFromConfig('#myMap',
-                'https://raw.githubusercontent.com/jzuercher123/ufomap/master/mapConfig.json',
-                false,
-                null,
-                function (mapObj) {
-                    //Store a reference to the map object instance.
-                    map = mapObj;
+        var map = new Microsoft.Maps.Map('#myMap', {
+            credentials: 'Your Bing Maps Key'
+        });
 
-                    //You can use the map object to just as you would normally.
-                    //To demonstrate this, the following code will change the map view after 5 seconds.
-                    setTimeout(function () {
-                        //Change the zoom level of the map.
-                        map.setView({ zoom: 5 });
-                    }, 5000);
-                }, function (errorMsg) {
-                    //An error occurred, display it.
-                    alert(message);
-                });
-        }
+        // Load the KML file
+        var kmlUrl = 'https://raw.githubusercontent.com/jzuercher123/ufomap/master/geodata/scripts/output.kml';
+        Microsoft.Maps.loadModule('Microsoft.Maps.GeoXml', function () {
+            Microsoft.Maps.GeoXml.readFromUrl(kmlUrl, function (shapes) {
+                map.entities.push(shapes);
+            });
+        });
+
+
     </script>
     <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AqK5Dlb1WPf1-H0oi9FTcPrnecF6erVoVTGWnwD2ClZDYVODvv2d0avFTNe0EkWC' async defer></script>
 </head>
