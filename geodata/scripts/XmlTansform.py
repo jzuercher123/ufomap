@@ -48,4 +48,21 @@ class XmlTransformer:
         """
         return self.transform_xml(xml_string, xslt_string)
 
+    def extract_coordinates(self, file)->None:
+        # TODO FINISH
+        latitude = ""
+        longitutde = ""
+        corrected = f"""
+        var map = new Microsoft.Maps.Map(document.getElementById('mapDiv'), {{
+            credentials: 'Your Bing Maps Key'}});
+            var latlong = new Microsoft.Maps.Location(latitude, longitude);
+            var pin = new Microsoft.Maps.Pushpin(latlong);
+            map.entities.push(pin);
+        """
+        with open(file, 'r') as f:
+            xml_string = f.readlines()
+            soup = BeautifulSoup(xml_string, 'xml')
+            coordinates = soup.find_all('point')
+            print(coordinates)
+
 
