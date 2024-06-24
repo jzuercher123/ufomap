@@ -6,7 +6,7 @@
     <script type='text/javascript'>
         var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {});
         Microsoft.Maps.loadModule('Microsoft.Maps.GeoXml', function () {
-            var layer = new Microsoft.Maps.GeoXmlLayer('https://bingmapsisdk.blob.core.windows.net/isdksamples/SampleKml.kml');
+            var layer = new Microsoft.Maps.GeoXmlLayer('https://raw.githubusercontent.com/jzuercher123/ufomap/master/geodata/scripts/output.kml');
             map.layers.insert(layer);
         });
 
