@@ -80,13 +80,14 @@ class CsvTransform:
         for row in rows:
             if 'longitude' in row and 'latitude' in row:
                 kml_data.append(
-                    f"<Placemark>\n\t<name>{row['city']}</name>\n\t\t<description>{row['comment']}</description>\n\t<Point><coordinates>{row['longitude']},{row['latitude']}</coordinates>\n\t</Point>\n</Placemark>")
+                    f"<Placemark>\n\t<region>{row['city']}</region>\n\t\t<description>{row['comment']}</description>\n\t<Point><coordinates>{row['longitude']},{row['latitude']}</coordinates>\n\t</Point>\n</Placemark>")
             else:
                 print(
                     f"Warning: 'longitude' or 'latitude' is missing for city {row.get('city', '')}. This data was skipped.")
 
         kml = f"""
-        <kml xmlns="http://www.opengis.net/kml/2.2">
+        <?xml version="1.0" standalone="yes" encoding="UTF-8"?>
+        <kml xmlns="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2000/xmlns/">
         <Document>
             {''.join(kml_data)}
         </Document>

@@ -28,10 +28,8 @@ class XmlTransformer:
             xml_string = f.read()
         xslt_string = """
         <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-            <xsl:template match="/">
-                <kml xmlns="http://www.opengis.net/kml/2.2">
+        <kml xmlns="http://www.opengis.net/kml/2.2">
                     <Document>
-                        <xsl:apply-templates/>
                     </Document>
                 </kml>
             </xsl:template>
