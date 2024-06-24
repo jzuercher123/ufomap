@@ -1,21 +1,44 @@
 <!DOCTYPE html>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <html>
-<head>
-    <title></title>
-    <meta charset="utf-8" />
+    <head>
     <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AqK5Dlb1WPf1-H0oi9FTcPrnecF6erVoVTGWnwD2ClZDYVODvv2d0avFTNe0EkWC' async defer></script>
-</head>
-<body>
-<div>
     <script type='text/javascript'>
-    var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {});
+    /*var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {});
     Microsoft.Maps.loadModule('Microsoft.Maps.GeoXml', function () {
         var layer = new Microsoft.Maps.GeoXmlLayer('https://raw.githubusercontent.com/jzuercher123/ufomap/master/geodata/scripts/output.kml');
         var layer2 = new Microsoft.Maps.GeoXmlLayer('https://bingmapsisdk.blob.core.windows.net/isdksamples/Countries.xml');
         map.layers.insert(layer)
-        map.layers.insert(layer2)
-    });</script>
-</div>
-<div id="myMap" style="position:relative;width:800px;height:600px;"></div>
+        map.layers.insert(layer2)*/
+    var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
+    /* No need to set credentials if already passed in URL */
+    center: new Microsoft.Maps.Location(51.49, -0.14),
+    zoom: 12
+    });
+    Microsoft.Maps.loadModule('Microsoft.Maps.GeoXml', function () {
+    var callback = function (dataset) {
+        if (dataset.shapes) {
+            var l = new Microsoft.Maps.Layer();
+            l.add(dataset.shapes);
+            map.layers.insert(l);
+        }
+        if (dataset.layers) {
+            for (var i = 0, len = dataset.layers.length; i < len; i++) {
+                map.layers.insert(dataset.layers[i]);
+            }
+        }
+        document.getElementById('printoutPanel').innerHTML = '<textarea id="geoxmlTextArea" cols=29 rows=21></textarea>';
+        document.getElementById('geoxmlTextArea').value = Microsoft.Maps.GeoXml.write(dataset, {
+            xmlFormat: Microsoft.Maps.GeoXmlFormat.kml,
+            roundLocations: true
+        });
+    };
+    Microsoft.Maps.GeoXml.readFromUrl('https://bingmapsisdk.blob.core.windows.net/isdksamples/BikeRoute.xml', { error: function (msg) { alert(msg); } }, callback);
+});
+</script>
+</head>
+    <title>Title</title>
+    <body>
 </body>
 </html>

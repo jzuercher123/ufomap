@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+
+    <!-- Reference to the Bing Maps SDK -->
+    <script type='text/javascript'
+            src='http://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AqK5Dlb1WPf1-H0oi9FTcPrnecF6erVoVTGWnwD2ClZDYVODvv2d0avFTNe0EkWC'
+            async defer></script>
+
+    <script type='text/javascript'>
+    function GetMap()
+    {
+        var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {});
+        Microsoft.Maps.loadModule('Microsoft.Maps.GeoXml', function () {
+        var layer = new Microsoft.Maps.GeoXmlLayer('https://raw.githubusercontent.com/jzuercher123/ufomap/master/geodata/scripts/output.kml');
+        map.layers.insert(layer);
+});
+
+
+        //Add your post map load code here.
+    }
+    </script>
+</head>
+<body>
+    <!-- div + css styling for map -->
+    <div id="myMap" style="position:relative;width:600px;height:400px;"></div>
+</body>
+</html>
