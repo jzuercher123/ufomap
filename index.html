@@ -11,6 +11,7 @@
         var layer2 = new Microsoft.Maps.GeoXmlLayer('https://bingmapsisdk.blob.core.windows.net/isdksamples/Countries.xml');
         map.layers.insert(layer)
         map.layers.insert(layer2)*/
+    function GetMap(){
     var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
     /* No need to set credentials if already passed in URL */
     center: new Microsoft.Maps.Location(51.49, -0.14),
@@ -33,9 +34,7 @@
             xmlFormat: Microsoft.Maps.GeoXmlFormat.kml,
             roundLocations: true
         });
-    };
-    Microsoft.Maps.GeoXml.readFromUrl('https://bingmapsisdk.blob.core.windows.net/isdksamples/BikeRoute.xml', { error: function (msg) { alert(msg); } }, callback);
-});
+})};
 </script>
 </head>
     <title>Title</title>
